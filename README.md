@@ -31,8 +31,8 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=VinhTechiee&show_icons=true&theme=tokyonight&cache_seconds=1800" />
-  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=VinhTechiee&layout=compact&theme=tokyonight&cache_seconds=1800" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=VinhTechiee&show_icons=true&theme=tokyonight&count_private=true" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=VinhTechiee&layout=compact&theme=tokyonight&count_private=true" />
 </p>
 
 ---
@@ -41,7 +41,7 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 
 <p align="center">
   <a href="https://github.com/VinhTechiee/How_to_train_your_dragon-Part-I-">
-    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=VinhTechiee&repo=How-to-train-your-dragon-Part-I-&theme=radical&cache_seconds=1800" />
+    <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=VinhTechiee&repo=How_to_train_your_dragon-Part-I-&theme=radical&cache_seconds=1800" />
   </a>
   <a href="https://github.com/VinhTechiee/Botkify-Playlist-Linkedlist">
     <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=VinhTechiee&repo=Botkify-Playlist-Linkedlist&theme=gruvbox&cache_seconds=1800" />
