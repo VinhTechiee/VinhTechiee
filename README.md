@@ -28,21 +28,19 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 
 ---
 
-## 📊 GitHub Stats
+## 📊 GitHub Activity
 
-![Vinh's github stats](https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api?username=VinhTechiee&show_icons=true&theme=tokyonight&hide=contribs,prs,issues)
+![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=VinhTechiee&theme=tokyo-night)
 
 ---
 
 ## 🚀 Featured Projects
 
-<a href="https://github.com/VinhTechiee/How_to_train_your_dragon-Part-I-">
-  <img align="center" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=VinhTechiee&repo=How_to_train_your_dragon-Part-I-&theme=radical" />
-</a>
+## 🚀 Featured Projects
 
-<a href="https://github.com/VinhTechiee/Botkify-Playlist-Linkedlist">
-  <img align="center" src="https://github-readme-stats-git-masterrstaa-rickstaa.vercel.app/api/pin/?username=VinhTechiee&repo=Botkify-Playlist-Linkedlist&theme=merko" />
-</a>
+[![ReadMe Card](https://img.shields.io/badge/Project-How_to_train_your_dragon-blue?style=for-the-badge)](https://github.com/VinhTechiee/How_to_train_your_dragon-Part-I-)
+
+[![ReadMe Card](https://img.shields.io/badge/Project-Botkify_Playlist_Linkedlist-green?style=for-the-badge)](https://github.com/VinhTechiee/Botkify-Playlist-Linkedlist)
 ---
 
 ## 📡 Current Learning Journey
