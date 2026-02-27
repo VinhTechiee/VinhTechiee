@@ -36,8 +36,6 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 
 ## 🚀 Featured Projects
 
-## 🚀 Featured Projects
-
 [![ReadMe Card](https://img.shields.io/badge/Project-How_to_train_your_dragon-blue?style=for-the-badge)](https://github.com/VinhTechiee/How_to_train_your_dragon-Part-I-)
 
 [![ReadMe Card](https://img.shields.io/badge/Project-Botkify_Playlist_Linkedlist-green?style=for-the-badge)](https://github.com/VinhTechiee/Botkify-Playlist-Linkedlist)
