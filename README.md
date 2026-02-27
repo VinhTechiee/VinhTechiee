@@ -5,7 +5,8 @@
 
 ## 🎓 About Me
 
-I'm an Engineering student at Ho Chi Minh City University of Technology (HCMUT).
+I'm an Engineering student at Ho Chi Minh City University of Technology (HCMUT - VNUHCM), 
+with a strong interest in building intelligent and connected systems.
 
 I am passionate about:
 - 🔌 Internet of Things (IoT)
