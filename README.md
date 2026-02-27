@@ -2,12 +2,6 @@
 <h3 align="center">IoT Enthusiast | Embedded Systems | HCMUT Student</h3>
 
 ---
-## 📫 Connect with me
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vinh-le-012079384/)
-[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/vinh.leasylove/)
-
----
 
 ## 🎓 About Me
 
@@ -38,7 +32,7 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 
 <p align="center">
   <img width="49%" src="https://github-readme-stats.vercel.app/api?username=VinhTechiee&show_icons=true&theme=tokyonight&cache_seconds=1800" />
-  <img width="49%" src="https://streak-stats.demolab.com?user=VinhTechiee&theme=tokyonight" />
+  <img width="49%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=VinhTechiee&layout=compact&theme=tokyonight&cache_seconds=1800" />
 </p>
 
 ---
@@ -46,7 +40,7 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 ## 🚀 Featured Projects
 
 <p align="center">
-  <a href="https://github.com/VinhTechiee/How-to-train-your-dragon-Part-I-">
+  <a href="https://github.com/VinhTechiee/How_to_train_your_dragon-Part-I-">
     <img width="49%" src="https://github-readme-stats.vercel.app/api/pin/?username=VinhTechiee&repo=How-to-train-your-dragon-Part-I-&theme=radical&cache_seconds=1800" />
   </a>
   <a href="https://github.com/VinhTechiee/Botkify-Playlist-Linkedlist">
@@ -64,3 +58,7 @@ I enjoy building systems from scratch — from core algorithms to real-world app
 - Edge computing fundamentals
 
 ---
+## 📫 Connect with me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vinh-le-012079384/)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/vinh.leasylove/)
