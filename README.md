@@ -177,6 +177,18 @@ I am currently spending more time on:
 
 ---
 
+
+## Contribution Snake
+
+<div align="center">
+  <img
+    src="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake-dark.svg"
+    alt="GitHub contribution snake animation"
+  />
+</div>
+
+---
+
 ## Contact
 
 I am open to internship opportunities related to embedded systems, IoT, firmware development, and digital design.
