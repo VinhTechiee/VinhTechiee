@@ -195,7 +195,6 @@ I am currently spending more time on:
     />
   </picture>
 </div>
----
 
 ## Contact
 
