@@ -183,14 +183,14 @@ I am currently spending more time on:
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake-dark.svg?v=2025snakefinal"
+      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake-dark.svg?v=platane1"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg?v=2025snakefinal"
+      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg?v=platane1"
     />
     <img
-      src="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg?v=2025snakefinal"
+      src="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg?v=platane1"
       alt="GitHub contribution snake animation"
     />
   </picture>
