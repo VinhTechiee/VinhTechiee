@@ -178,26 +178,25 @@ I am currently spending more time on:
 ---
 
 
-## Contribution Snake
+## 🐍 Contribution Snake
 
 <div align="center">
   <picture>
     <source
       media="(prefers-color-scheme: dark)"
-      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake-dark.svg"
+      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake-dark.svg?v=2025"
     />
     <source
       media="(prefers-color-scheme: light)"
-      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg"
+      srcset="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg?v=2025"
     />
     <img
-      src="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg"
+      src="https://raw.githubusercontent.com/VinhTechiee/VinhTechiee/output/github-contribution-grid-snake.svg?v=2025"
       alt="GitHub contribution snake animation"
     />
   </picture>
 </div>
 
----
 ---
 
 ## Contact
