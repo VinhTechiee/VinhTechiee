@@ -1,4 +1,4 @@
-name: Generate contribution snake
+name: Generate 2025 contribution snake
 
 on:
   workflow_dispatch:
@@ -13,15 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Generate snake animation
-        uses: Platane/snk/svg-only@v3
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          github_user_name: VinhTechiee
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+          node-version: 20
+
+      - name: Generate custom 2025 snake
+        run: node .github/scripts/generate-snake-2025.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.SNAKE_TOKEN }}
+          GITHUB_USER: VinhTechiee
+          CONTRIBUTION_YEAR: "2025"
 
       - name: Push snake files to output branch
         uses: crazy-max/ghaction-github-pages@v4
