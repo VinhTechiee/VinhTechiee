@@ -16,7 +16,6 @@ query($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
     contributionsCollection(from: $from, to: $to) {
       contributionCalendar {
-        totalContributions
         weeks {
           contributionDays {
             date
@@ -36,7 +35,7 @@ const response = await fetch("https://api.github.com/graphql", {
   headers: {
     Authorization: `Bearer ${TOKEN}`,
     "Content-Type": "application/json",
-    "User-Agent": "custom-snake-2025",
+    "User-Agent": "custom-2025-snake",
   },
   body: JSON.stringify({
     query,
@@ -55,34 +54,56 @@ if (!response.ok || json.errors) {
   throw new Error("GitHub GraphQL request failed.");
 }
 
-const calendar =
-  json.data.user.contributionsCollection.contributionCalendar;
-
-const weeks = calendar.weeks;
+const weeks =
+  json.data.user.contributionsCollection.contributionCalendar.weeks;
 
 const CELL = 12;
 const GAP = 3;
 const STEP = CELL + GAP;
-const LEFT = 20;
-const TOP = 25;
-const WIDTH = LEFT + weeks.length * STEP + 20;
-const HEIGHT = TOP + 7 * STEP + 20;
+const LEFT = 18;
+const TOP = 18;
+const WIDTH = LEFT + weeks.length * STEP + 18;
+const HEIGHT = TOP + 7 * STEP + 18;
 
 function emptyColor(dark) {
   return dark ? "#161b22" : "#ebedf0";
 }
 
-function strokeColor(dark) {
+function borderColor(dark) {
   return dark ? "#0d1117" : "#ffffff";
+}
+
+function buildSmoothPath(points) {
+  if (points.length === 0) return `M ${LEFT} ${TOP}`;
+  if (points.length === 1) return `M ${points[0].x} ${points[0].y}`;
+
+  let d = `M ${points[0].x} ${points[0].y}`;
+
+  for (let i = 1; i < points.length - 1; i++) {
+    const current = points[i];
+    const next = points[i + 1];
+    const midX = (current.x + next.x) / 2;
+    const midY = (current.y + next.y) / 2;
+    d += ` Q ${current.x} ${current.y} ${midX} ${midY}`;
+  }
+
+  const last2 = points[points.length - 2];
+  const last = points[points.length - 1];
+  d += ` Q ${last2.x} ${last2.y} ${last.x} ${last.y}`;
+
+  return d;
 }
 
 function buildSvg(dark = false) {
   const bg = dark ? "#0d1117" : "#ffffff";
-  const snake = "#a855f7"; // tím
+
+  const snakeMain = "#a855f7";
   const snakeGlow = "#c084fc";
+  const snakeHighlight = "#d8b4fe";
+  const tongueColor = "#fb7185";
 
   const rects = [];
-  const snakePoints = [];
+  const activePoints = [];
 
   weeks.forEach((week, weekIndex) => {
     week.contributionDays.forEach((day) => {
@@ -102,7 +123,7 @@ function buildSvg(dark = false) {
           height="${CELL}"
           rx="2"
           fill="${fill}"
-          stroke="${strokeColor(dark)}"
+          stroke="${borderColor(dark)}"
           stroke-width="0.6"
         >
           <title>${day.date}: ${day.contributionCount} contributions</title>
@@ -110,7 +131,7 @@ function buildSvg(dark = false) {
       `);
 
       if (day.contributionCount > 0) {
-        snakePoints.push({
+        activePoints.push({
           x: x + CELL / 2,
           y: y + CELL / 2,
           date: day.date,
@@ -119,16 +140,10 @@ function buildSvg(dark = false) {
     });
   });
 
-  snakePoints.sort((a, b) => a.date.localeCompare(b.date));
+  activePoints.sort((a, b) => a.date.localeCompare(b.date));
 
-  const pathD =
-    snakePoints.length > 0
-      ? snakePoints
-          .map((p, i) => (i === 0 ? `M ${p.x} ${p.y}` : `L ${p.x} ${p.y}`))
-          .join(" ")
-      : `M ${LEFT} ${TOP}`;
-
-  const pathLength = Math.max(600, snakePoints.length * 18);
+  const pathD = buildSmoothPath(activePoints);
+  const pathLength = Math.max(1000, activePoints.length * 22);
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg
@@ -144,58 +159,80 @@ function buildSvg(dark = false) {
     ${rects.join("\n")}
   </g>
 
-  <!-- snake trail -->
+  <!-- soft trail -->
+  <path
+    d="${pathD}"
+    fill="none"
+    stroke="${snakeGlow}"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.14"
+  />
+
+  <!-- animated body -->
   <path
     id="snake-path"
     d="${pathD}"
     fill="none"
-    stroke="${snakeGlow}"
-    stroke-width="7"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    opacity="0.25"
-  />
-
-  <!-- moving snake body -->
-  <path
-    d="${pathD}"
-    fill="none"
-    stroke="${snake}"
-    stroke-width="7"
+    stroke="${snakeMain}"
+    stroke-width="8"
     stroke-linecap="round"
     stroke-linejoin="round"
     pathLength="${pathLength}"
-    stroke-dasharray="45 ${pathLength}"
+    stroke-dasharray="70 ${pathLength}"
+    filter="url(#glow)"
   >
     <animate
       attributeName="stroke-dashoffset"
       from="${pathLength}"
       to="0"
-      dur="10s"
+      dur="11s"
       repeatCount="indefinite"
     />
   </path>
 
   <!-- snake head -->
   <g>
-    <circle r="7" fill="${snake}">
-      <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
-        <mpath xlink:href="#snake-path" />
-      </animateMotion>
-    </circle>
+    <g id="snake-head">
+      <ellipse cx="0" cy="0" rx="8.2" ry="6.8" fill="${snakeMain}" />
+      <ellipse cx="-1" cy="-1.2" rx="6.3" ry="4.9" fill="${snakeHighlight}" opacity="0.35" />
 
-    <circle r="2" fill="white" cx="-2" cy="-1">
-      <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
-        <mpath xlink:href="#snake-path" />
-      </animateMotion>
-    </circle>
+      <!-- eyes -->
+      <circle cx="-2.4" cy="-1.7" r="1.15" fill="white" />
+      <circle cx="2.4" cy="-1.7" r="1.15" fill="white" />
+      <circle cx="-2.4" cy="-1.7" r="0.5" fill="#111827" />
+      <circle cx="2.4" cy="-1.7" r="0.5" fill="#111827" />
 
-    <circle r="2" fill="white" cx="2" cy="-1">
-      <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
-        <mpath xlink:href="#snake-path" />
-      </animateMotion>
-    </circle>
+      <!-- tongue -->
+      <path
+        d="M 0 2.5 L 0 6.4 M 0 6.4 L -1.5 8.2 M 0 6.4 L 1.5 8.2"
+        stroke="${tongueColor}"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        fill="none"
+      />
+
+      <!-- little nose -->
+      <circle cx="-0.8" cy="0.9" r="0.35" fill="#6b21a8" />
+      <circle cx="0.8" cy="0.9" r="0.35" fill="#6b21a8" />
+    </g>
+
+    <animateMotion dur="11s" repeatCount="indefinite" rotate="auto">
+      <mpath xlink:href="#snake-path" />
+    </animateMotion>
   </g>
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
 </svg>`;
 }
 
@@ -213,4 +250,4 @@ await fs.writeFile(
   "utf8"
 );
 
-console.log(`Generated ${YEAR} snake for ${USERNAME}`);
+console.log(`Generated custom contribution snake for ${USERNAME} (${YEAR})`);
